@@ -35,6 +35,29 @@
           </li>
           <li>HDFS block size is 128MB</li>
         </ul>
+        We made the experiments on three data input sets:
+        <ul>
+          <li>ish_is:
+            <ul>
+              <li>Contains 6 columns which represent: year, month, day, hour, minute, payload</li>
+              <li>ROLLUP over (overall, year, month, day, hour, minute) and uses the SUM aggregate function.</li>
+            </ul>
+          </li>
+          <li>uniform_syn_32_30:
+            <ul>
+              <li>Contains 7 columns which represent: year, month, day, hour, minute, second, payload</li>
+              <li>ROLLUP over (overall, year, month, day, hour, minute, second) and uses the SUM aggregate function.</li>
+            </ul>
+          </li>
+          <li>rdns: 
+            <ul>
+              <li>Contains one column which represents the Unixtime.</li>
+              <li>ROLLUP over (overall, year, month, day, hour, minute, second) and uses the COUNT_STAR aggregate function.</li>
+            </ul>
+          </li>    
+        </ul>
+        <p>For each data input set, we ran two experiments: one which uses the current ROLLUP, one which uses our ROLLUP.<br>
+        All the experiments with our ROLLUP were executed with the PIVOT=3.</p>
         
         <h1>
         <a name="Results" class="anchor" href="#result"><span class="octicon octicon-link"></span></a>Results</h1>
